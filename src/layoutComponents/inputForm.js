@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./inputForm.css";
 
 function InputForm(props) {
+  const [focused, setFocused] = useState(false);
   const { lable, errorMsg, handleOnChange, id, ...inputProps } = props;
+
+  const handleFocus = (e) => {
+    setFocused(true);
+  };
 
   return (
     <div className="input-text-box">
@@ -12,7 +17,9 @@ function InputForm(props) {
         className="text-input-box"
         {...inputProps}
         onChange={handleOnChange}
-      ></input>
+        onBlur={handleFocus}
+        focused={focused.toString()}
+      />
       <span>{errorMsg}</span>
     </div>
   );
