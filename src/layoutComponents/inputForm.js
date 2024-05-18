@@ -1,18 +1,19 @@
 import React from "react";
+import "./inputForm.css";
 
 function InputForm(props) {
+  const { lable, errorMsg, handleOnChange, id, ...inputProps } = props;
+
   return (
     <div className="input-text-box">
-      <lable className="text-lable" for={props.placeholder}>
-        {props.placeholder}
-      </lable>
+      <lable className="text-lable">{lable}</lable>
 
       <input
         className="text-input-box"
-        type={props.type}
-        id={props.placeholder}
-        name={props.placeholder}
+        {...inputProps}
+        onChange={handleOnChange}
       ></input>
+      <span>{errorMsg}</span>
     </div>
   );
 }

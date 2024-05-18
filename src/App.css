@@ -1,45 +1,37 @@
-body {
-  height: 100vh;
-  background-color: hsl(0, 29%, 45%);
-}
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: hsl(215, 88%, 10%);
 }
 
 form {
-  background-color: hsl(0, 0%, 85%);
-  padding: 3rem;
+  background-color: hsl(218, 49%, 21%);
+  padding: 1rem 3rem;
+  max-width: min-content;
   border-radius: 20px;
   text-align: center;
 }
 
-.input-text-box {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0.5rem;
-}
-
-.text-lable {
-  padding: 5px 0px;
-  font-size: large;
-}
-
-input {
-  padding: 1rem;
-  border: none;
-  border-radius: 10px;
-  font-size: medium;
+.form-title {
+  color: white;
+  font-weight: 900;
 }
 
 #submit-btn {
-  margin: 1rem;
+  width: 80%;
+  padding: 1rem;
+  margin: 2rem 0px;
+  border: none;
+  border-radius: 10px;
   font-size: medium;
   font-weight: 600;
-  background-color: hsl(125, 57%, 51%);
+  background-color: hsl(125, 100%, 40%);
+  cursor: pointer;
+}
+
+#submit-btn:hover {
+  background-color: hsl(125, 100%, 35%);
 }
