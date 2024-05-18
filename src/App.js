@@ -1,23 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import InputForm from "./layoutComponents/inputForm";
 
 function App() {
+  const [inputValues, setInputValues] = useState({
+    name: "",
+    email: "",
+    birthdate: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const formFields = [
+    {
+      id: 1,
+      name: "name",
+      type: "text",
+      lable: "Full Name",
+      placeholder: "Full Name",
+    },
+    {
+      id: 2,
+      name: "email",
+      type: "email",
+      lable: "Email",
+      placeholder: "Email",
+    },
+    {
+      id: 3,
+      name: "birthdate",
+      type: "date",
+      lable: "Birthdate",
+      placeholder: "Birthdate",
+    },
+    {
+      id: 4,
+      name: "password",
+      type: "password",
+      lable: "Password",
+      placeholder: "Password",
+    },
+    {
+      id: 5,
+      name: "confirmPassword",
+      type: "password",
+      lable: "Confirm Password",
+      placeholder: "Confirm Password",
+    },
+  ];
+
+  const OnChange = (e) => {
+    setInputValues({ ...inputValues, [e.target.name]: e.target.value });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <form>
+        <h1 className="form-title">Register</h1>
+        {formFields.map((input) => (
+          <InputForm
+            key={input.id}
+            {...input}
+            value={inputValues[input.name]}
+            handleOnChange={OnChange}
+          />
+        ))}
+        <button id="submit-btn">submit</button>
+      </form>
     </div>
   );
 }
