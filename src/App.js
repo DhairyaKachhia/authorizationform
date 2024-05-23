@@ -68,10 +68,6 @@ function App() {
     setInputValues({ ...inputValues, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="container">
       <form>

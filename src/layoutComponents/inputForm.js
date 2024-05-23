@@ -11,7 +11,7 @@ function InputForm(props) {
 
   return (
     <div className="input-text-box">
-      <lable className="text-lable">{lable}</lable>
+      <label className="text-lable">{lable}</label>
 
       <input
         className="text-input-box"
