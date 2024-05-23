@@ -84,9 +84,7 @@ function App() {
             handleOnChange={onChange}
           />
         ))}
-        <button id="submit-btn" onSubmit={onSubmit}>
-          submit
-        </button>
+        <button id="submit-btn">submit</button>
       </form>
     </div>
   );
