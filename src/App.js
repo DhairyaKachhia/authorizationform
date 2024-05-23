@@ -18,6 +18,9 @@ function App() {
       type: "text",
       lable: "Full Name",
       placeholder: "Full Name",
+      errorMsg: "Name should contain 3-20 letters!",
+      pattern: "^[A-Za-z0-9]{3,20}$",
+      required: true,
     },
     {
       id: 2,
@@ -25,6 +28,8 @@ function App() {
       type: "email",
       lable: "Email",
       placeholder: "Email",
+      errorMsg: "Invalid email type!",
+      required: true,
     },
     {
       id: 3,
@@ -32,6 +37,8 @@ function App() {
       type: "date",
       lable: "Birthdate",
       placeholder: "Birthdate",
+      errorMsg: "Birthdate cannot pass current date!",
+      required: false,
     },
     {
       id: 4,
@@ -39,6 +46,11 @@ function App() {
       type: "password",
       lable: "Password",
       placeholder: "Password",
+      errorMsg:
+        "Password must contain 8-14 characters and should include 1 letter, 1 number, and 1 special character!",
+      pattern:
+        "^(?=.*[0-9])(?=.*[A-Za-z])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,14}$",
+      required: true,
     },
     {
       id: 5,
@@ -46,11 +58,18 @@ function App() {
       type: "password",
       lable: "Confirm Password",
       placeholder: "Confirm Password",
+      errorMsg: "Passwords does not match",
+      pattern: inputValues.password,
+      required: true,
     },
   ];
 
-  const OnChange = (e) => {
+  const onChange = (e) => {
     setInputValues({ ...inputValues, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -62,7 +81,7 @@ function App() {
             key={input.id}
             {...input}
             value={inputValues[input.name]}
-            handleOnChange={OnChange}
+            handleOnChange={onChange}
           />
         ))}
         <button id="submit-btn">submit</button>
